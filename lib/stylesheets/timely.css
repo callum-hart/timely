@@ -18,6 +18,9 @@
 .timely-timeline > li:nth-child(even) {
   float: right;
 }
+.timely-timeline > li:nth-child(even) .delete-timeline-item {
+  float: right;
+}
 .timely-timeline .timeline-line {
   position: absolute;
 }

@@ -1,9 +1,12 @@
 class TimeLine
   constructor: (options) ->
-    @timeline = document.getElementsByClassName(options)[0]
+    @timeline = document.getElementById(options)
+    @items = @timeline.children
+    @delete_links = document.getElementsByClassName('delete-timeline-item')
     @initialise()
 
   initialise: ->
+    @registerClickListeners()
     @showTimeLine()
     @showTimeLineItems()
     @showVertLine()
@@ -15,7 +18,6 @@ class TimeLine
     ), 1
 
   showTimeLineItems: ->
-    @items = @timeline.children
     i = 0
     l = @items.length
 
@@ -34,3 +36,18 @@ class TimeLine
 
   insertVertLine: (line) ->
     @timeline.insertBefore(line)
+
+  registerClickListeners: ->
+    i = 0
+    l = @delete_links.length
+
+    while i < l
+      @delete_links[i].addEventListener "click", @deleteItem
+      i++
+
+  deleteItem: ->
+    @item = this.parentNode
+    item_styles = window.getComputedStyle(@item)
+    @item_side = item_styles.getPropertyValue("float")
+
+    debugger
