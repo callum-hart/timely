@@ -1,11 +1,15 @@
-.ty-timeline {
-	display: none;
+.timely-timeline {
 	float: left;
 	clear: both;
 	width: 100%;
+	position: relative;
 	margin: 0;
 	padding: 0;
 	> li {
+		list-style: none;
+		clear: both;
+		width: 50%;
+		box-sizing: border-box;
 		&:nth-child(odd) {
 			float: left;
 		}
@@ -13,7 +17,7 @@
 			float: right;
 		}
 	}
-	&.loaded {
-		display: block;
+	.timeline-line {
+		position: absolute;
 	}
 }

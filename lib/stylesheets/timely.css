@@ -1,17 +1,50 @@
-.ty-timeline {
-  display: none;
+.timely-timeline {
   float: left;
   clear: both;
   width: 100%;
+  position: relative;
   margin: 0;
   padding: 0;
 }
-.ty-timeline > li:nth-child(odd) {
+.timely-timeline > li {
+  list-style: none;
+  clear: both;
+  width: 50%;
+  box-sizing: border-box;
+}
+.timely-timeline > li:nth-child(odd) {
   float: left;
 }
-.ty-timeline > li:nth-child(even) {
+.timely-timeline > li:nth-child(even) {
   float: right;
 }
-.ty-timeline.loaded {
-  display: block;
+.timely-timeline .timeline-line {
+  position: absolute;
+}
+.timely-timeline {
+  background: rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.timely-timeline > li {
+  border: 1px solid black;
+}
+.timely-timeline .timeline-line {
+  width: 2px;
+  background: #ff0000;
+}
+.timely-timeline > li {
+  opacity: 0;
+}
+.timely-timeline .timeline-line {
+  height: 0px;
+  opacity: 0;
+  transition: height 0.9s ease-in 0.05s;
+}
+.timely-timeline.loaded > li {
+  opacity: 1;
+}
+.timely-timeline.loaded .timeline-line {
+  opacity: 1;
+  height: 100%;
 }

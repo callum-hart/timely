@@ -1,0 +1,19 @@
+.timely-timeline {
+	> li {
+		opacity: 0;
+	}
+	.timeline-line {
+		height: 0px;
+		opacity: 0;
+		transition: height .9s ease-in .05s;
+	}
+	&.loaded {
+		> li {
+			opacity: 1;
+		}
+		.timeline-line {
+			opacity: 1;
+			height: 100%;
+		}
+	}
+}

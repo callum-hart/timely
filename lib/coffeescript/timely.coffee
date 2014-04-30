@@ -1,19 +1,36 @@
-class Timely
+class TimeLine
   constructor: (options) ->
-    @elm = document.getElementsByClassName(options)
-    @init()
+    @timeline = document.getElementsByClassName(options)[0]
+    @initialise()
 
-  init: ->
+  initialise: ->
     @showTimeLine()
+    @showTimeLineItems()
+    @showVertLine()
 
   showTimeLine: ->
-    @elm[0].className += ' loaded'
+    timeline = @timeline
+    setTimeout (->
+      timeline.className += " loaded"
+    ), 1
 
-class TimeLines extends Timely
-  showTimeLine: ->
+  showTimeLineItems: ->
+    @items = @timeline.children
     i = 0
-    l = @elm.length
+    l = @items.length
 
     while i < l
-      @elm[i].className += ' loaded'
+      @items[i].style.transition = "opacity 0.5s ease-out #{i/4}s"
       i++
+
+  showVertLine: ->
+    line = @createVertLine()
+    @insertVertLine(line)
+
+  createVertLine: ->
+    span = document.createElement("span")
+    span.className = "timeline-line"
+    return span
+
+  insertVertLine: (line) ->
+    @timeline.insertBefore(line)
