@@ -1,3 +1,17 @@
-h1 {
-  color: red;
+.ty-timeline {
+  display: none;
+  float: left;
+  clear: both;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.ty-timeline > li:nth-child(odd) {
+  float: left;
+}
+.ty-timeline > li:nth-child(even) {
+  float: right;
+}
+.ty-timeline.loaded {
+  display: block;
 }

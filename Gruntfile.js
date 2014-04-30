@@ -5,7 +5,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.initConfig({
     coffee: {
-      compile: {
+      compileBare: {
+        options: {
+          bare: true
+        },
         files: {
           'lib/javascripts/timely.js': ['lib/coffeescript/*.coffee']
         }

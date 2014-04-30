@@ -1,0 +1,19 @@
+.ty-timeline {
+	display: none;
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	> li {
+		&:nth-child(odd) {
+			float: left;
+		}
+		&:nth-child(even) {
+			float: right;
+		}
+	}
+	&.loaded {
+		display: block;
+	}
+}
